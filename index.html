@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="index.css">
+</head>
+<body>
+    <nav>
+        <div class="logo">
+            <img src="../Apna-bank/image/SBI-Logo-1970.png" alt="SBI">
+        </div>
+        <div class="link">
+            <a href="">Accounts</a>
+            <a href="">About Us</a>
+            <a href="">Service</a>
+            <a href="">Contact Us</a>
+        </div>
+
+    </nav>
+    <div class="banner">
+      <img src="../Apna-bank/image/sbi bank banner.jpg" alt="">
+    </div>
+    <div class="container">
+      <div class="box1">
+        <img src="../Apna-bank/image/background image.jpg" alt="">
+      </div>
+    
+    <div class="bank_balance">
+    <div id="data">
+        <h1>Available balance:- <span id="balance">0</span></h1>
+        Enter Amount:-<input type="text" id="amount">
+      </div>
+        <div id="btn">
+        <button id="credit">Deposit</button>
+        <button id="debit">Withdraw</button>
+    </div>
+  </div>
+</div>
+</body>
+<script>
+  let balance = 0;
+  let span = document.getElementById("balance")
+  let Amount = document.getElementById("amount")
+  let deposit = document.getElementById("credit")
+  let withdraw = document.getElementById("debit")
+  
+
+  function creditbutton(){
+    let amount = Number(Amount.value)
+    if(amount>0){
+        balance = balance + amount;
+        span.innerText = balance;
+        alert("Your amount successful credit")
+    }
+    else{
+        alert("Enter a valid amount")
+    }
+    Amount.value='';
+   
+  }
+
+  function debitbutton(){
+    let amount = Number(Amount.value)
+    if(balance>0 && balance>=amount){
+        balance = balance - amount;
+        span.innerText = balance;
+        alert("Your amount successful debit")
+  }
+  else{
+    alert("Insufficent balance")
+  }
+  Amount.value='';
+
+}
+credit.addEventListener("click", creditbutton);
+debit.addEventListener("click",debitbutton );
+</script>
+</html>
